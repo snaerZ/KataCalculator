@@ -17,14 +17,7 @@ Calc:
 
 		toNum1, _ := strconv.Atoi(num1) // Преобразование тексата из переменной num1 в число (переменная toNum1)
 		toNum2, _ := strconv.Atoi(num2) // Преобразование тексата из переменной num1 в число (переменная toNum1)
-		// Вывод результата
-		// fmt.Println(num1)
-		// fmt.Println(action)
-		// fmt.Println(num2)
-		// fmt.Println("***************************")
-		// fmt.Println(toNum1)
-		// fmt.Println(toNum2)
-
+		
 		// Проверка чисел для вывода ошибок
 
 		if toNum1 == 0 && toNum2 != 0 {
