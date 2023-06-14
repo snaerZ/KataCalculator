@@ -8,19 +8,26 @@ import (
 )
 
 func main() {
+
 Calc:
 	for {
-		var num1, action, num2 string
+		var num1, action, num2, action2, num3 string
 
-		fmt.Println("Введите вырежение:")
-		fmt.Scan(&num1, &action, &num2)
+		fmt.Println("Введите математическое вырежение:")
+		fmt.Scanln(&num1, &action, &num2, &action2, &num3)
 
 		toNum1, _ := strconv.Atoi(num1) // Преобразование тексата из переменной num1 в число (переменная toNum1)
 		toNum2, _ := strconv.Atoi(num2) // Преобразование тексата из переменной num1 в число (переменная toNum1)
-		
+
 		// Проверка чисел для вывода ошибок
 
-		if toNum1 == 0 && toNum2 != 0 {
+		if action2 == "" { // Проверяем на наличие второго оператора или операнда
+		} else if num3 == "" {
+		} else {
+			log.Fatalln("Ошибка! Выражение должно состоять из двух операндов и одного оператора!")
+		}
+
+		if toNum1 == 0 && toNum2 != 0 { // Проверяем, что оба числа арабские или римские
 			log.Fatalln("Ошибка! Оба числа должны быть арабскими или римскими!")
 		} else if toNum1 != 0 && toNum2 == 0 {
 			log.Fatalln("Ошибка! Оба числа должны быть арабскими или римскими!")
@@ -77,7 +84,7 @@ Calc:
 		// **********************************************************************************
 
 		if toNum1 > 0 && toNum2 > 0 {
-			goto Calc //break
+			goto Calc // break
 		}
 
 		var Rim1, Rim2 int
@@ -154,7 +161,7 @@ Calc:
 
 		case "-":
 			if Rim2 >= Rim1 {
-				log.Fatalln("Ошибка! Римское число не может получится отрицательным или 0!")
+				log.Fatalln("Ошибка! Римское число не может получиться отрицательным или 0!")
 			} else {
 				resultInt = Rim1 - Rim2
 			}
